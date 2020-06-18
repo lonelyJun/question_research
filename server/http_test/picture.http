@@ -11,4 +11,4 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:3000/books/5e1596ac2527d22850c19dd8
+POST http://localhost:3000/api/picture/deleteAll

@@ -27,9 +27,18 @@ const removeAllData = (callback) => {
   })
 }
 
+const findAllEnableData = (callback) => {
+  dbHelper.findData(model, {
+    enable: true
+  }, {}, {}, result => {
+    callback(result);
+  })
+}
+
 module.exports = {
   addData,
   findAllData,
   findOneByData,
-  removeAllData
+  removeAllData,
+  findAllEnableData
 }

@@ -7,6 +7,13 @@ var pictureSchema = new mongoose.Schema({
   picUrl: {
     type: String
   },
+  enable: {
+    type: Boolean,
+    default: true
+  },
+  index: {
+    type: Number
+  },
   qustion1: {
     city: {
       type: Number,
@@ -28,30 +35,23 @@ var pictureSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-    question2: {
-      type: Number,
-      default: 0
-    },
-    question3: {
-      type: Number,
-      default: 0
-    },
-    question4: {
-      type: Number,
-      default: 0
-    },
-    question5: {
-      type: Number,
-      default: 0
-    },
-    enable: {
-      type: Boolean,
-      default: true
-    },
-    index: {
-      type: Number
-    }
-  }
+  },
+  question2: {
+    type: Number,
+    default: 0
+  },
+  question3: {
+    type: Number,
+    default: 0
+  },
+  question4: {
+    type: Number,
+    default: 0
+  },
+  question5: {
+    type: Number,
+    default: 0
+  },
 });
 //生成方法getModel给予调用，返回picture模型
 module.exports = {
