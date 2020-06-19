@@ -18,7 +18,6 @@
         将文件拖到此处，或
         <em>点击上传</em>
       </div>
-      <div class="el-upload__tip" slot="tip">还剩{{beginUploadCount}}个文件没有上传</div>
     </el-upload>
     <div class="overlay" v-if="overlayFlag">
       <div class="progress">
@@ -26,11 +25,30 @@
         <div class="progressValue" ref="progressValueDom"></div>
       </div>
     </div>
+    <el-table :data="tableData" height="250" border>
+      <el-table-column prop="index" label="图片编号" width="80"></el-table-column>
+      <el-table-column label="图片">
+        <template slot-scope="scope">
+          <img :src="scope.row.picUrl" />
+        </template>
+      </el-table-column>
+      <el-table-column label="问题1">
+        <el-table-column prop="qustion1.city" label="都市" width="50"></el-table-column>
+        <el-table-column prop="qustion1.outskirts" label="近郊" width="50"></el-table-column>
+        <el-table-column prop="qustion1.water" label="滨水" width="50"></el-table-column>
+        <el-table-column prop="qustion1.country" label="乡村" width="50"></el-table-column>
+        <el-table-column prop="qustion1.product" label="产业园" width="75"></el-table-column>
+      </el-table-column>
+      <el-table-column prop="question2" label="问题2" width="80"></el-table-column>
+      <el-table-column prop="question3" label="问题3" width="80"></el-table-column>
+      <el-table-column prop="question4" label="问题4" width="80"></el-table-column>
+      <el-table-column prop="question5" label="问题5" width="80"></el-table-column>
+    </el-table>
   </div>
 </template>
 
 <script>
-import { uploadFile } from "../service/service";
+import { uploadFile, getAllPictureData } from "../service/service";
 export default {
   data() {
     return {
@@ -39,7 +57,8 @@ export default {
       fileList: [],
       overlayFlag: false,
       fileLength: 0,
-      progressValue: "0%"
+      progressValue: "0%",
+      tableData: []
     };
   },
 
@@ -47,7 +66,13 @@ export default {
 
   computed: {},
 
-  mounted() {},
+  mounted() {
+    getAllPictureData(aPD_res => {
+      if (aPD_res.code == 0) {
+        this.tableData = aPD_res.data;
+      }
+    });
+  },
 
   methods: {
     beofreUpload() {
@@ -74,6 +99,11 @@ export default {
             this.fileLength = 0;
             this.progressValue = "0%";
           }, 1000);
+          getAllPictureData(aPD_res => {
+            if (aPD_res.code == 0) {
+              this.tableData = aPD_res.data;
+            }
+          });
         }
       });
     },
@@ -85,6 +115,15 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+/deep/ .el-table {
+  width: 80%;
+  margin: 20px auto;
+}
+/deep/ .el-table--border::after,
+.el-table--group::after,
+.el-table::before {
+  z-index: 0;
+}
 .uploadPage {
   width: 100%;
   height: 100%;
