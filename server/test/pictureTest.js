@@ -22,32 +22,67 @@ describe('测试' + testName, () => {
   after(() => {
     mongoose.disconnect()
   })
-  it('添加一个图片数据', done => {
-    let picture = {
-      picUrl: '/image/1.png',
-      index: 0
-    }
-    dao.addData(picture, result => {
+  // it('添加一个图片数据', done => {
+  //   let picture = {
+  //     picUrl: '/image/1.png',
+  //     index: 0
+  //   }
+  //   dao.addData(picture, result => {
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  // it('测试查询所有图片数据', done => {
+  //   dao.findAllData(result => {
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  // it('删除所有图片', done => {
+  //   dao.removeAllData(result => {
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  it('更新问题1', done => {
+    let index = 0
+    dao.updateQuestion1(index, 1, result => {
       assert(result.code == 0)
       done()
     })
   })
-  it('测试查询所有图片数据', done => {
-    dao.findAllData(result => {
-      assert(result.code == 0)
-      done()
-    })
-  })
-  it('删除所有图片', done => {
-    dao.removeAllData(result => {
-      assert(result.code == 0)
-      done()
-    })
-  })
-  // it('按照ID删除书本', done => {
-  //   let id = bookList[0]._id
-  //   BookDao.deleteBookById(id, err => {
-  //     assert(err == null)
+  // it('更新问题2', done => {
+  //   let index = 0
+  //   dao.updateQuestion2(index, result => {
+  //     console.log(result, 2)
+
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  // it('更新问题3', done => {
+  //   let index = 0
+  //   dao.updateQuestion3(index, result => {
+  //     console.log(result, 3)
+
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  // it('更新问题4', done => {
+  //   let index = 0
+  //   dao.updateQuestion4(index, result => {
+  //     console.log(result, 4)
+
+  //     assert(result.code == 0)
+  //     done()
+  //   })
+  // })
+  // it('更新问题5', done => {
+  //   let index = 0
+  //   dao.updateQuestion5(index, result => {
+  //     console.log(result, 5)
+  //     assert(result.code == 0)
   //     done()
   //   })
   // })

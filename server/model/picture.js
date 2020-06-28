@@ -7,34 +7,36 @@ var pictureSchema = new mongoose.Schema({
   picUrl: {
     type: String
   },
-  enable: {
-    type: Boolean,
-    default: true
-  },
   index: {
     type: Number
   },
-  qustion1: {
-    city: {
-      type: Number,
-      default: 0
-    },
-    outskirts: {
-      type: Number,
-      default: 0
-    },
-    water: {
-      type: Number,
-      default: 0
-    },
-    country: {
-      type: Number,
-      default: 0
-    },
-    product: {
-      type: Number,
-      default: 0
-    },
+  // enable: {
+  //   type: Boolean,
+  //   default: true
+  // },
+  // city: {
+  //   type: Number,
+  //   default: 0
+  // },
+  // outskirts: {
+  //   type: Number,
+  //   default: 0
+  // },
+  // water: {
+  //   type: Number,
+  //   default: 0
+  // },
+  // country: {
+  //   type: Number,
+  //   default: 0
+  // },
+  // product: {
+  //   type: Number,
+  //   default: 0
+  // },
+  question1: {
+    type: Number,
+    default: 0
   },
   question2: {
     type: Number,
