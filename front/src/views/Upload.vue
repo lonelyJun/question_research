@@ -36,18 +36,21 @@
           <img :src="scope.row.picUrl" />
         </template>
       </el-table-column>
-      <!-- <el-table-column label="问题1">
-        <el-table-column prop="city" label="都市" width="50"></el-table-column>
-        <el-table-column prop="outskirts" label="近郊" width="50"></el-table-column>
-        <el-table-column prop="water" label="滨水" width="50"></el-table-column>
-        <el-table-column prop="country" label="乡村" width="50"></el-table-column>
-        <el-table-column prop="product" label="产业园" width="75"></el-table-column>
-      </el-table-column>-->
-      <el-table-column prop="question1" label="问题1" width="80"></el-table-column>
+      <el-table-column label="问题1">
+        <el-table-column prop="Residential" label="居住区" width="75"></el-table-column>
+        <el-table-column prop="Office" label="办公区" width="75"></el-table-column>
+        <el-table-column prop="Commercial" label="商业区" width="75"></el-table-column>
+        <el-table-column prop="Suburban" label="近郊" width="50"></el-table-column>
+        <el-table-column prop="Waterfront" label="滨水" width="50"></el-table-column>
+        <el-table-column prop="Countryside" label="乡村" width="50"></el-table-column>
+      </el-table-column>
       <el-table-column prop="question2" label="问题2" width="80"></el-table-column>
       <el-table-column prop="question3" label="问题3" width="80"></el-table-column>
       <el-table-column prop="question4" label="问题4" width="80"></el-table-column>
       <el-table-column prop="question5" label="问题5" width="80"></el-table-column>
+      <el-table-column prop="question6" label="问题6" width="80"></el-table-column>
+      <el-table-column prop="question7" label="问题6" width="80"></el-table-column>
+      <el-table-column prop="question8" label="问题6" width="80"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -84,12 +87,11 @@ export default {
 
   methods: {
     handleExportCSV() {
-      // let str = "图片编号,都市,近郊,滨水,乡村,产业园,问题2,问题3,问题4,问题5\n";
-      let str = "图片编号,问题1,问题2,问题3,问题4,问题5\n";
+      let str =
+        "图片编号,居住区,办公区,商业区,近郊,滨水,乡村,问题2,问题3,问题4,问题5,问题6,问题7,问题8\n";
       if (this.tableData.length != 0) {
         this.tableData.forEach(o => {
-          // str += `${o.index},${o.city},${o.outskirts},${o.water},${o.country},${o.product},${o.question2},${o.question3},${o.question4},${o.question5}\n`;
-          str += `${o.index},${o.question1},${o.question2},${o.question3},${o.question4},${o.question5}\n`;
+          str += `${o.index},${o.Residential},${o.Office},${o.Commercial},${o.Suburban},${o.Waterfront},${o.Countryside},${o.question2},${o.question3},${o.question4},${o.question5},${o.question6},${o.question7},${o.question8}\n`;
         });
         //encodeURIComponent解决中文乱码
         let uri =

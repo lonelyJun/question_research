@@ -10,31 +10,31 @@ var pictureSchema = new mongoose.Schema({
   index: {
     type: Number
   },
-  // enable: {
-  //   type: Boolean,
-  //   default: true
-  // },
-  // city: {
-  //   type: Number,
-  //   default: 0
-  // },
-  // outskirts: {
-  //   type: Number,
-  //   default: 0
-  // },
-  // water: {
-  //   type: Number,
-  //   default: 0
-  // },
-  // country: {
-  //   type: Number,
-  //   default: 0
-  // },
-  // product: {
-  //   type: Number,
-  //   default: 0
-  // },
-  question1: {
+  enable: {
+    type: Boolean,
+    default: true
+  },
+  Residential: {
+    type: Number,
+    default: 0
+  },
+  Office: {
+    type: Number,
+    default: 0
+  },
+  Commercial: {
+    type: Number,
+    default: 0
+  },
+  Suburban: {
+    type: Number,
+    default: 0
+  },
+  Waterfront: {
+    type: Number,
+    default: 0
+  },
+  Countryside: {
     type: Number,
     default: 0
   },
@@ -51,6 +51,18 @@ var pictureSchema = new mongoose.Schema({
     default: 0
   },
   question5: {
+    type: Number,
+    default: 0
+  },
+  question6: {
+    type: Number,
+    default: 0
+  },
+  question7: {
+    type: Number,
+    default: 0
+  },
+  question8: {
     type: Number,
     default: 0
   },

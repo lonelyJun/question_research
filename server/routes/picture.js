@@ -136,8 +136,8 @@ router.get("/length", (req, res, next) => {
 })
 
 router.get("/writeResult", (req, res, next) => {
-  // pictureDao.updateQuestion1(req.query.pic1, req.query.radio1, q1_res => {
-  pictureDao.updateQuestion1(req.query.question1, q1_res => {
+  pictureDao.updateQuestion1(req.query.pic1, req.query.radio1, q1_res => {
+    // pictureDao.updateQuestion1(req.query.question1, q1_res => {
     if (q1_res.code == 0) {
       pictureDao.updateQuestion2(req.query.question2, q2_res => {
         if (q2_res.code == 0) {
@@ -146,7 +146,25 @@ router.get("/writeResult", (req, res, next) => {
               pictureDao.updateQuestion4(req.query.question4, q4_res => {
                 if (q4_res.code == 0) {
                   pictureDao.updateQuestion5(req.query.question5, q5_res => {
-                    res.json(q5_res);
+                    if (q5_res.code == 0) {
+                      pictureDao.updateQuestion6(req.query.question6, q6_res => {
+                        if (q6_res.code == 0) {
+                          pictureDao.updateQuestion7(req.query.question7, q7_res => {
+                            if (q7_res.code == 0) {
+                              pictureDao.updateQuestion8(req.query.question8, q8_res => {
+                                res.json(q8_res);
+                              });
+                            } else {
+                              res.json(q7_res);
+                            }
+                          });
+                        } else {
+                          res.json(q6_res);
+                        }
+                      });
+                    } else {
+                      res.json(q5_res);
+                    }
                   });
                 } else {
                   res.json(q4_res)

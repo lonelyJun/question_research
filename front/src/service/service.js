@@ -13,9 +13,9 @@ export const uploadFile = (data) => {
 }
 
 export const sumbitResult = (param) => {
-  // return Vue.axios.get("/api/picture/writeResult?pic1=" + param.pic1 + "&radio1=" + param.radio1 + "&question2=" + param.question2 + "&question3=" + param.question3 + "&question4=" + param.question4 + "&question5=" + param.question5)
-  return Vue.axios.get("/api/picture/writeResult?question1=" +
-    param.question1 + "&question2=" + param.question2 + "&question3=" + param.question3 + "&question4=" + param.question4 + "&question5=" + param.question5)
+  return Vue.axios.get("/api/picture/writeResult?pic1=" + param.pic1 + "&radio1=" + param.radio1 + "&question2=" + param.question2 + "&question3=" + param.question3 + "&question4=" + param.question4 + "&question5=" + param.question5 + "&question6=" + param.question6 + "&question7=" + param.question7 + "&question8=" + param.question8)
+  // return Vue.axios.get("/api/picture/writeResult?question1=" +
+  // param.question1 + "&question2=" + param.question2 + "&question3=" + param.question3 + "&question4=" + param.question4 + "&question5=" + param.question5)
 }
 
 export const removeAll = () => {

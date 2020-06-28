@@ -43,42 +43,32 @@ const findDataByIndex = (index, callback) => {
   })
 }
 
-// const updateQuestion1 = (index, radio, callback) => {
-//   let picResult = ""
-//   switch (parseInt(radio)) {
-//     case 0:
-//       picResult = "city"
-//       break;
-//     case 1:
-//       picResult = "outskirts"
-//       break;
-//     case 2:
-//       picResult = "water"
-//       break;
-//     case 3:
-//       picResult = "country"
-//       break;
-//     default:
-//       picResult = "product"
-//   }
-//   dbHelper.updateData(model, {
-//       index: index
-//     }, {
-//       $inc: {
-//         [picResult]: 1
-//       }
-//     }, {},
-//     result => {
-//       callback(result);
-//     })
-// }
-
-const updateQuestion1 = (index, callback) => {
+const updateQuestion1 = (index, radio, callback) => {
+  let picResult = ""
+  switch (parseInt(radio)) {
+    case 0:
+      picResult = "Residential"
+      break;
+    case 1:
+      picResult = "Office"
+      break;
+    case 2:
+      picResult = "Commercial"
+      break;
+    case 3:
+      picResult = "Suburban"
+      break;
+    case 4:
+      picResult = "Waterfront"
+      break;
+    default:
+      picResult = "Countryside"
+  }
   dbHelper.updateData(model, {
       index: index
     }, {
       $inc: {
-        question1: 1
+        [picResult]: 1
       }
     }, {},
     result => {
@@ -138,6 +128,45 @@ const updateQuestion5 = (index, callback) => {
     })
 }
 
+const updateQuestion6 = (index, callback) => {
+  dbHelper.updateData(model, {
+      index: index
+    }, {
+      $inc: {
+        question6: 1
+      }
+    }, {},
+    result => {
+      callback(result);
+    })
+}
+
+const updateQuestion7 = (index, callback) => {
+  dbHelper.updateData(model, {
+      index: index
+    }, {
+      $inc: {
+        question7: 1
+      }
+    }, {},
+    result => {
+      callback(result);
+    })
+}
+
+const updateQuestion8 = (index, callback) => {
+  dbHelper.updateData(model, {
+      index: index
+    }, {
+      $inc: {
+        question8: 1
+      }
+    }, {},
+    result => {
+      callback(result);
+    })
+}
+
 
 module.exports = {
   addData,
@@ -150,5 +179,8 @@ module.exports = {
   updateQuestion3,
   updateQuestion4,
   updateQuestion5,
+  updateQuestion6,
+  updateQuestion7,
+  updateQuestion8,
   findDataByIndex
 }
